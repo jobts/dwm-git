@@ -54,7 +54,7 @@ or you can download original sources and apply patches,  see PKGBUILD file
  *  Win - Arrow keys duplicates hjkl
  *  Volume keys:  Win - numpad + / Win- numpad  Pulseaudio controls
  *  Alt + F4 close window as usual
- *  Alt + F2 close window as usual
+ *  Alt + F2 app menu duplicate
  *  Win + backstick (tilda)  open terminal
  *  Win + g gaplessgrid
  *  Win + u bstack
