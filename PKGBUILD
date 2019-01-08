@@ -34,15 +34,16 @@ prepare() {
   for i in $PURL; do
     curl -O "$i"
     file=$(echo  "$i" | rev |  cut -d "/" -f 1 | rev)
-    echo -e "------------------------apply patch $file\n-------------------------"
+    echo -e "------------------------\napply patch $file\n-------------------------"
     patch -p1 -d $_pkgname < $file
   done
 
   echo "Apply Custom config and patches"
-  # included in config  https://dwm.suckless.org/patches/gaplessgrid/dwm-gaplessgrid-20160731-56a31dc.diff
-  # included in config https://dwm.suckless.org/patches/bottomstack/dwm-bottomstack-6.1.diff
-  # included in config   https://dwm.suckless.org/patches/centeredmaster/dwm-centeredmaster-6.1.diff
-  # include in config https://dwm.suckless.org/patches/cyclelayouts/dwm-cyclelayouts-20180524-a09e766.diff
+  # included in config:
+  # https://dwm.suckless.org/patches/gaplessgrid/dwm-gaplessgrid-20160731-56a31dc.diff
+  # https://dwm.suckless.org/patches/bottomstack/dwm-bottomstack-6.1.diff
+  # https://dwm.suckless.org/patches/centeredmaster/dwm-centeredmaster-6.1.diff
+  # https://dwm.suckless.org/patches/cyclelayouts/dwm-cyclelayouts-20180524-a09e766.diff
   patch -p1 -d $_pkgname < ../config.dev.h.diff
 
   cd $_pkgname
