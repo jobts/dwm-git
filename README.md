@@ -58,9 +58,11 @@ or you can download original sources and apply patches,  see PKGBUILD file
  *  Win + g gaplessgrid
  *  Win + u bstack
  *  Win + o bstackhoriz
- *  Ctrl + Win + l  - light-dm lock screen
- *  Win + Ctrl + , / Win + Ctrl + .   loop layots
+ *  Win + Ctrl + l  - light-dm lock screen
+ *  Win + Ctrl + , / Win + Ctrl + .   Layouts loop
  *  Win + `  (tilda)  open terminal
+ *  Win + c - centeredmaster
+ *  Win + v - centeredfloatingmaster
 
  
 ### Layouts: 
