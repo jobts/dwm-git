@@ -1,0 +1,19 @@
+# Install software or edit this list 
+numlockx on &
+xset -b & # disable beep in X
+compton -b &
+# feh --bg-scale /home/user/wallpapers/example.jpg &  # Set your image
+xfce4-power-manager &
+light-locker &
+# gxneur & # Keyboard layout auto switcher
+urxvtd & # Terminal daemon
+rambox & # multiple IM's in one
+sleep 1 && urxvtc & # one terminal client by default
+volumeicon & # Volume control icon in the tray
+
+# Status bar
+while true; do 
+  # xsetroot -name "$(date +%F" "%T)"
+  xsetroot -name "$(date +"%d %a %R") $(xset -q | grep -q  "12: Group 2:     off" && echo 'EN' || echo 'RU') "
+  sleep 1
+done &

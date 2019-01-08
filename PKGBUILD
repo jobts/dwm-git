@@ -1,6 +1,6 @@
 pkgname=dwm-git
 _pkgname=dwm
-pkgver=6.1.26.g3bd8466
+pkgver=6.1.33.gb69c870
 pkgrel=1
 pkgdesc="A dynamic window manager for X"
 url="http://dwm.suckless.org"
@@ -24,6 +24,27 @@ pkgver(){
 }
 
 prepare() {
+  PURL="https://dwm.suckless.org/patches/systray/dwm-systray-20180314-3bd8466.diff
+  https://dwm.suckless.org/patches/pertag/dwm-pertag-20170513-ceac8c9.diff
+  https://dwm.suckless.org/patches/autoresize/dwm-autoresize-20160718-56a31dc.diff"
+  # zero byte, check later https://dwm.suckless.org/patches/winview/dwm-6.1-winview.diff
+  # conflict with systray https://dwm.suckless.org/patches/alpha/dwm-alpha-20180613-b69c870.diff
+  # very old https://dwm.suckless.org/patches/viewontag/dwm-r1522-viewontag.diff
+  # very old https://dwm.suckless.org/patches/xtile/dwm-6.0-xtile.diff
+  for i in $PURL; do
+    curl -O "$i"
+    file=$(echo  "$i" | rev |  cut -d "/" -f 1 | rev)
+    echo -e "------------------------apply patch $file\n-------------------------"
+    patch -p1 -d $_pkgname < $file
+  done
+
+  echo "Apply Custom config and patches"
+  # included in config  https://dwm.suckless.org/patches/gaplessgrid/dwm-gaplessgrid-20160731-56a31dc.diff
+  # included in config https://dwm.suckless.org/patches/bottomstack/dwm-bottomstack-6.1.diff
+  # included in config   https://dwm.suckless.org/patches/centeredmaster/dwm-centeredmaster-6.1.diff
+  # include in config https://dwm.suckless.org/patches/cyclelayouts/dwm-cyclelayouts-20180524-a09e766.diff
+  patch -p1 -d $_pkgname < ../config.dev.h.diff
+
   cd $_pkgname
   if [[ -f "$SRCDEST/$pkgname/config.h" ]]; then
     cp -f "$SRCDEST/$pkgname/config.h" config.h
