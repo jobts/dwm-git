@@ -49,19 +49,19 @@ makepkg -Cfi
 or you can download original sources and apply patches,  see PKGBUILD file
 
 
-## Win key as Modkey
-### Keybord shortcuts:
+## Win key as Modkey. General keyboard shortcuts available.
+### New keybord shortcuts:
  *  Win - Arrow keys duplicates hjkl
  *  Volume keys:  Win - numpad + / Win- numpad  Pulseaudio controls
  *  Alt + F4 close window as usual
  *  Alt + F2 app menu duplicate
- *  Win + backstick (tilda)  open terminal
  *  Win + g gaplessgrid
  *  Win + u bstack
  *  Win + o bstackhoriz
  *  Ctrl + Win + l  - light-dm lock screen
- *  Win + , / Win + . loop layots
- *  Win + `  tilda open terminal
+ *  Win + Ctrl + , / Win + Ctrl + .   loop layots
+ *  Win + `  (tilda)  open terminal
+
  
 ### Layouts: 
 
