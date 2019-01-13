@@ -90,7 +90,7 @@ index 1c0b587..9ff16cc 100644
 -static const char *termcmd[]  = { "st", NULL };
 -
 +// My terminal and dmenu replacement
-+static const char *dmenucmd[] = { "rofi", "-show", "combi", NULL };
++static const char *dmenucmd[] = { "rofi", "-show", NULL };
 +static const char *termcmd[]  = { "urxvtc", NULL };
 +// Volume up down mute command
 +static const char *volupcmd[]  = { "pactl", "set-sink-volume", "0", "+3%", NULL };
