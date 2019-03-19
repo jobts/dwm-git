@@ -1,6 +1,6 @@
 pkgname=dwm-git
 _pkgname=dwm
-pkgver=6.1.33.gb69c870
+pkgver=6.2
 pkgrel=1
 pkgdesc="A dynamic window manager for X"
 url="http://dwm.suckless.org"
@@ -24,7 +24,7 @@ pkgver(){
 }
 
 prepare() {
-  PURL="https://dwm.suckless.org/patches/systray/dwm-systray-20180314-3bd8466.diff
+  PURL="https://dwm.suckless.org/patches/systray/dwm-systray-20190208-cb3f58a.diff
   https://dwm.suckless.org/patches/pertag/dwm-pertag-20170513-ceac8c9.diff
   https://dwm.suckless.org/patches/autoresize/dwm-autoresize-20160718-56a31dc.diff"
   # zero byte, check later https://dwm.suckless.org/patches/winview/dwm-6.1-winview.diff
