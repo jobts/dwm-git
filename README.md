@@ -27,14 +27,14 @@ Dwm Arch Linux modified package
 Download / git clone package
 
 ### Icons font, added to depends
-```
+
 ~~pacman -S  awesome-terminal-fonts~~
-```
+
 
 ### rofi app menu, added to depends
-```
+
 ~~pacman -S rofi~~
-```
+
 
 
 ### Build, install package
@@ -49,8 +49,8 @@ makepkg -Cfi
 
 or you can download original sources and apply patches,  see PKGBUILD file
 
-## .xprofile file
-### The working sample is included to the package. Install optional dependencies and copy .xprofile to your home dir.
+### .xprofile file
+The working sample is included to the package. Install optional dependencies and copy .xprofile to your home dir.
 
 ## Win key as Modkey. General keyboard shortcuts available.
 ### New keybord shortcuts:
