@@ -9,30 +9,31 @@ Dwm Arch Linux modified package
 
 **patches that install from original src**
 
-* https://dwm.suckless.org/patches/systray/dwm-systray-20180314-3bd8466.diff
+* ~~https://dwm.suckless.org/patches/systray/dwm-systray-6.2.diff~~ disabled until fix
 * https://dwm.suckless.org/patches/pertag/dwm-pertag-20170513-ceac8c9.diff
 * https://dwm.suckless.org/patches/autoresize/dwm-autoresize-20160718-56a31dc.diff
 
 **patches included in config.dev.h**
-
 * https://dwm.suckless.org/patches/gaplessgrid/dwm-gaplessgrid-20160731-56a31dc.diff
 * https://dwm.suckless.org/patches/bottomstack/dwm-bottomstack-6.1.diff
 * https://dwm.suckless.org/patches/centeredmaster/dwm-centeredmaster-6.1.diff
 * https://dwm.suckless.org/patches/cyclelayouts/dwm-cyclelayouts-20180524-a09e766.diff
 
+**dwm-systray mod
+* dwm-systray-6.2-20200504.diff
 
 ## Installation 
 
 Download / git clone package
 
-### Icons font
+### Icons font, added to depends
 ```
-pacman -S  awesome-terminal-fonts
+~~pacman -S  awesome-terminal-fonts~~
 ```
 
-### rofi app menu
+### rofi app menu, added to depends
 ```
-pacman -S rofi
+~~pacman -S rofi~~
 ```
 
 
@@ -48,6 +49,8 @@ makepkg -Cfi
 
 or you can download original sources and apply patches,  see PKGBUILD file
 
+## .xprofile file
+### The working sample is included to the package. Install optional dependencies and copy .xprofile to your home dir.
 
 ## Win key as Modkey. General keyboard shortcuts available.
 ### New keybord shortcuts:
