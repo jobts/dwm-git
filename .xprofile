@@ -7,7 +7,7 @@ xfce4-power-manager &
 light-locker &
 # gxneur & # Keyboard layout auto switcher
 urxvtd & # Terminal daemon
-rambox & # multiple IM's in one
+# rambox & # multiple IM's in one
 sleep 1 && urxvtc & # one terminal client by default
 volumeicon & # Volume control icon in the tray
 
@@ -17,3 +17,14 @@ while true; do
   xsetroot -name "$(date +"%d %a %R") $(xset -q | grep -q  "12: Group 2:     off" && echo 'EN' || echo 'RU') "
   sleep 1
 done &
+
+# xfce4-power-manager set in presentation mode when audio is playing
+
+while sleep 60s; do
+	if pacmd list-sink-inputs | grep -c 'state: RUNNING' > /dev/null ; then
+		xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/presentation-mode -s true
+	else
+		xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/presentation-mode -s false
+	fi
+done &
+
