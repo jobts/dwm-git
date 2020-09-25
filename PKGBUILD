@@ -1,6 +1,6 @@
 pkgname=dwm-git
 _pkgname=dwm
-pkgver=6.2.5.gf09418b
+pkgver=6.2.8.g61bb8b2
 pkgrel=1
 pkgdesc="A dynamic window manager for X"
 url="http://dwm.suckless.org"
@@ -8,7 +8,7 @@ arch=('i686' 'x86_64')
 license=('MIT')
 options=(zipman)
 depends=('libx11' 'libxinerama' 'libxft' 'rofi' 'awesome-terminal-fonts')
-optdepends=('numlockx' 'compton' 'feh' 'xfce4-power-manager' 'light-locker' 'rxvt-unicode' 'volumeicon')
+optdepends=('numlockx' 'picom' 'feh' 'xfce4-power-manager' 'light-locker' 'rxvt-unicode' 'volumeicon')
 makedepends=('git')
 install=dwm.install
 provides=('dwm')
@@ -26,7 +26,8 @@ pkgver(){
 
 prepare() {
   PURL="https://dwm.suckless.org/patches/pertag/dwm-pertag-6.2.diff
-  https://dwm.suckless.org/patches/autoresize/dwm-autoresize-20160718-56a31dc.diff"
+  https://dwm.suckless.org/patches/autoresize/dwm-autoresize-20160718-56a31dc.diff
+  https://dwm.suckless.org/patches/systray/dwm-systray-20200914-61bb8b2.diff"
   # removed until fixing, custom created https://dwm.suckless.org/patches/systray/dwm-systray-6.2.diff
   # conflict https://dwm.suckless.org/patches/pertag/dwm-pertag-20170513-ceac8c9.diff
   # zero byte, check later https://dwm.suckless.org/patches/winview/dwm-6.1-winview.diff
@@ -34,8 +35,6 @@ prepare() {
   # very old https://dwm.suckless.org/patches/viewontag/dwm-r1522-viewontag.diff
   # very old https://dwm.suckless.org/patches/xtile/dwm-6.0-xtile.diff
 
-  # custom systray
-  patch -p1 -d $_pkgname < ../dwm-systray-6.2-20200504.diff
 
   for i in $PURL; do
     curl -O "$i"
