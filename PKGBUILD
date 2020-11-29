@@ -25,16 +25,20 @@ pkgver(){
 }
 
 prepare() {
-  PURL="https://dwm.suckless.org/patches/pertag/dwm-pertag-6.2.diff
-  https://dwm.suckless.org/patches/autoresize/dwm-autoresize-20160718-56a31dc.diff
-  https://dwm.suckless.org/patches/systray/dwm-systray-20200914-61bb8b2.diff"
-  # removed until fixing, custom created https://dwm.suckless.org/patches/systray/dwm-systray-6.2.diff
-  # conflict https://dwm.suckless.org/patches/pertag/dwm-pertag-20170513-ceac8c9.diff
+  PURL="
+    https://dwm.suckless.org/patches/pertag/dwm-pertag-6.2.diff
+    https://dwm.suckless.org/patches/autoresize/dwm-autoresize-20160718-56a31dc.diff
+    https://dwm.suckless.org/patches/systray/dwm-systray-20200914-61bb8b2.diff
+    https://dwm.suckless.org/patches/xtile/dwm-xtile-6.2.diff
+    https://dwm.suckless.org/patches/cyclelayouts/dwm-cyclelayouts-20180524-6.2.diff
+    https://dwm.suckless.org/patches/gaplessgrid/dwm-gaplessgrid-20160731-56a31dc.diff
+    "
+
   # zero byte, check later https://dwm.suckless.org/patches/winview/dwm-6.1-winview.diff
   # conflict with systray https://dwm.suckless.org/patches/alpha/dwm-alpha-20180613-b69c870.diff
   # very old https://dwm.suckless.org/patches/viewontag/dwm-r1522-viewontag.diff
-  # very old https://dwm.suckless.org/patches/xtile/dwm-6.0-xtile.diff
-
+  # conflict with xtile https://dwm.suckless.org/patches/bottomstack/dwm-bottomstack-6.1.diff replaced by xtile
+  # conflict with xtile https://dwm.suckless.org/patches/centeredmaster/dwm-centeredmaster-6.1.diff
 
   for i in $PURL; do
     curl -O "$i"
@@ -43,12 +47,15 @@ prepare() {
     patch -p1 -d $_pkgname < $file
   done
 
-  echo "Apply Custom config and patches"
-  # included in config:
-  # https://dwm.suckless.org/patches/gaplessgrid/dwm-gaplessgrid-20160731-56a31dc.diff
-  # https://dwm.suckless.org/patches/bottomstack/dwm-bottomstack-6.1.diff
-  # https://dwm.suckless.org/patches/centeredmaster/dwm-centeredmaster-6.1.diff
-  # https://dwm.suckless.org/patches/cyclelayouts/dwm-cyclelayouts-20180524-a09e766.diff
+  # https://dwm.suckless.org/patches/nextprev/
+  # Function to shift the current view to the left/right
+  #
+  # @param: "arg->i" stores the number of tags to shift right (positive value)
+  #          or left (negative value)
+
+  curl -O --output-dir $_pkgname https://lists.suckless.org/dev/att-7590/shiftview.c
+
+  echo "Apply Custom config patches"
   patch -p1 -d $_pkgname < ../config.dev.h.diff
 
   cd $_pkgname
