@@ -100,7 +100,7 @@ diff --git a/config.def.h b/config.def.h
  static Key keys[] = {
  	/* modifier                     key        function        argument */
  	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-@@ -110,6 +133,36 @@ static Key keys[] = {
+@@ -110,6 +133,29 @@ static Key keys[] = {
  	TAGKEYS(                        XK_8,                      7)
  	TAGKEYS(                        XK_9,                      8)
  	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
@@ -121,23 +121,16 @@ diff --git a/config.def.h b/config.def.h
 +	{ MODKEY,                       XK_grave,  spawn,          {.v = termcmd } },
 +	{ MODKEY|ControlMask,           XK_l,      spawn,          {.v = lockcmd } },
 +/* next prev tag rotate */
-+	{ MODKEY|ControlMask,           XK_Right,          shiftview,  { .i = +1 } },
-+	{ MODKEY|ControlMask,           XK_Left,           shiftview,  { .i = -1 } },
++	{ MODKEY|ControlMask,           XK_Right,  shiftview,      { .i = +1 } },
++	{ MODKEY|ControlMask,           XK_Left,   shiftview,      { .i = -1 } },
 +/* end next prev tag rotate */
-+/* end WINVIEW */
-+/*	{ MODKEY|ControlMask,           XK_o,      winview,        {0} },*/
-+/* end winview */
 +/* new layouts */
 +	{ MODKEY,                       XK_g,      setlayout,      {.v = &layouts[3] } },
-+	{ MODKEY|ControlMask,           XK_comma,  cyclelayout,    {.i = -1 } },
-+	{ MODKEY|ControlMask,           XK_period, cyclelayout,    {.i = +1 } },
-+
-+
 +/* end new layouts */
  };
 
  /* button definitions */
-@@ -127,5 +180,9 @@ static Button buttons[] = {
+@@ -127,5 +173,9 @@ static Button buttons[] = {
  	{ ClkTagBar,            0,              Button3,        toggleview,     {0} },
  	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
  	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
