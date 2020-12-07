@@ -50,7 +50,9 @@ The working sample is included to the package. Install optional dependencies and
 
 ## Win key as Modkey. General keyboard shortcuts available.
 ### New keybord shortcuts:
- *  Win - Arrow keys duplicates hjkl
+ *  Win + Arrow keys UP/DOWN duplicates kj
+ *  Win + CTRL + Arrow keys Left/Right to change window size, duplicates hl
+ *  Win + Arrow keys Left/Right to switch next/previous tag
  *  Volume keys:  Win - numpad + / Win- numpad  Pulseaudio controls
  *  Alt + F4 close window as usual
  *  Alt + F2 app menu duplicate

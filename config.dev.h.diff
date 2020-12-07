@@ -78,8 +78,8 @@ diff --git a/config.def.h b/config.def.h
  	{ MOD, XK_h, setfacts, {.v = (float[]){ INC(G * -0.1), INC(M * -0.1), INC(S * -0.1) } } }, \
 -	{ MOD, XK_l, setfacts, {.v = (float[]){ INC(G * +0.1), INC(M * +0.1), INC(S * +0.1) } } },
 +	{ MOD, XK_l, setfacts, {.v = (float[]){ INC(G * +0.1), INC(M * +0.1), INC(S * +0.1) } } }, \
-+	{ MOD, XK_Left, setfacts, {.v = (float[]){ INC(G * -0.1), INC(M * -0.1), INC(S * -0.1) } } }, \
-+	{ MOD, XK_Right, setfacts, {.v = (float[]){ INC(G * +0.1), INC(M * +0.1), INC(S * +0.1) } } },
++	{ MOD|ControlMask, XK_Left, setfacts, {.v = (float[]){ INC(G * -0.1), INC(M * -0.1), INC(S * -0.1) } } }, \
++	{ MOD|ControlMask, XK_Right, setfacts, {.v = (float[]){ INC(G * +0.1), INC(M * +0.1), INC(S * +0.1) } } },
 
  /* helper for spawning shell commands in the pre dwm-5.0 fashion */
  #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
@@ -121,8 +121,8 @@ diff --git a/config.def.h b/config.def.h
 +	{ MODKEY,                       XK_grave,  spawn,          {.v = termcmd } },
 +	{ MODKEY|ControlMask,           XK_l,      spawn,          {.v = lockcmd } },
 +/* next prev tag rotate */
-+	{ MODKEY|ControlMask,           XK_Right,  shiftview,      { .i = +1 } },
-+	{ MODKEY|ControlMask,           XK_Left,   shiftview,      { .i = -1 } },
++	{ MODKEY,                       XK_Right,  shiftview,      { .i = +1 } },
++	{ MODKEY,                       XK_Left,   shiftview,      { .i = -1 } },
 +/* end next prev tag rotate */
 +/* new layouts */
 +	{ MODKEY,                       XK_g,      setlayout,      {.v = &layouts[3] } },
